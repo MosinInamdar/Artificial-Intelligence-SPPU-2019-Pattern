@@ -1,9 +1,9 @@
 # Define diseases and their associated symptoms
 diseases = {
-    "Alzheimer's Disease": ['memory_loss', 'confusion', 'irritability', 'personality_changes', 'mood_swings', 'hallucination', 'loss_of_appetite', 'jumbled_speech', 'general_discontent'],
-    "Common Cold": ['runny_nose', 'sneezing', 'Sore_throat', 'Watering_eyes', 'fever', 'sinus_pressure', 'headache', 'fatigue', 'body_ache'],
-    "Influenza": ['fever', 'body_aches', 'chills', 'sneezing', 'Sore_throat', 'Watering_eyes', 'sinus_pressure', 'headache', 'fatigue', 'dehydration'],
-    "Allergies": ['itchy_eyes', 'rash', 'hives', 'fever', 'swollen_airways', 'skin_irritaion', 'shock', 'sneezing', 'wheezing', 'difficulty_breathing', 'cough', 'nausea'],
+    "Alzheimer's Disease": ['memory_loss', 'confusion', 'irritability', 'personality_changes'],
+    "Common Cold": ['runny_nose', 'sneezing', 'Sore_throat', 'Watering_eyes'],
+    "Influenza": ['fever', 'body_aches', 'chills', 'sneezing', 'Sore_throat'],
+    "Allergies": ['itchy_eyes', 'rash', 'hives', 'fever', 'swollen_airways'],
     # Add more diseases and associated symptoms as needed
 }
 
