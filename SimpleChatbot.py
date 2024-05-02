@@ -1,31 +1,44 @@
-def greet():
-    print("Welcome to Customer Care. How can I assist you today?")
+def tokenize(text):
+    """Converts text to lowercase and splits it into tokens."""
+    return text.lower().split()
 
-def respond(message):
-    message = message.lower()
-
-    if "order" in message:
-        return "For order-related inquiries, please provide your order number."
-    elif "delivery" in message or "shipping" in message:
-        return "For delivery-related inquiries, please provide your tracking number."
-    elif "refund" in message or "return" in message:
-        return "For refund or return requests, please provide your order number."
-    elif "complaint" in message or "issue" in message:
-        return "I'm sorry to hear that. Please provide more details so I can assist you better."
-    elif "thanks" in message or "thank you" in message:
-        return "You're welcome! If you need further assistance, feel free to ask."
-    else:
-        return "I'm sorry, I didn't understand that. Could you please rephrase or provide more details?"
-
-def main():
-    greet()
+def customer_care_chatbot():
+    # Dictionaries to hold responses for different categories
+    responses = {
+        'hours': "We're open from 9 AM to 8 PM, Monday to Saturday. Let us know if you need more information!",
+        'returns': "You can return a product within 30 days of purchase with a receipt. Need help with the process?",
+        'contact': "You can reach us at 1-800-123-4567 or email us at contact@example.com. Don't hesitate to contact us!",
+        'location': "Our store is located at 123 Main St, Anytown, USA. Visit us for an amazing shopping experience!",
+        'appointments': "You can book an appointment by calling us or visiting our website. We're here to help you!"
+    }
+    
+    keywords = {
+        'hours': ['hours', 'open', 'time', 'when'],
+        'returns': ['return', 'refund', 'exchange'],
+        'contact': ['contact', 'phone', 'email', 'call', 'reach'],
+        'location': ['where', 'location', 'address', 'find'],
+        'appointments': ['appointment', 'book', 'schedule', 'meeting']
+    }
+    
+    print("Hello! I'm here to help with any questions you have. What would you like to know today?")
+    
     while True:
         user_input = input("You: ")
-        if user_input.lower() == 'exit':
-            print("Thank you for contacting us. Have a great day!")
+        if 'exit' in user_input.lower() or 'goodbye' in user_input.lower():
+            print("Bot: Thank you for contacting us. Have a great day!")
             break
-        response = respond(user_input)
-        print("Bot:", response)
 
-if __name__ == "__main__":
-    main()
+        tokens = tokenize(user_input)
+        responded = False
+        
+        for category, keys in keywords.items():
+            if any(token in tokens for token in keys):
+                print(f"Bot: {responses[category]}")
+                responded = True
+                break
+        
+        if not responded:
+            print("Bot: I'm not sure how to answer that. Could you try a different question or maybe rephrase that?")
+
+# Run the chatbot
+customer_care_chatbot()
